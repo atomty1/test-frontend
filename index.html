@@ -14,7 +14,7 @@
   <script>
     function sendData() {
       const msg = document.getElementById("message").value;
-      axios.post("http://localhost:80/devops_containers/api.php", { message: msg })
+      axios.post("http://backend/api.php", { message: msg })
         .then(res => {
           document.getElementById("response").innerText = "Response: " + res.data;
         })
