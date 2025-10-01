@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Frontend</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <h2>Send Data to PHP Backend</h2>
+  <input type="text" id="message" placeholder="Enter a message">
+  <button onclick="sendData()">Send</button>
+
+  <p id="response"></p>
+
+  <script>
+    function sendData() {
+      const msg = document.getElementById("message").value;
+      axios.post("http://localhost:80/devops_containers/api.php", { message: msg })
+        .then(res => {
+          document.getElementById("response").innerText = "Response: " + res.data;
+        })
+        .catch(err => console.error(err));
+    }
+  </script>
+</body>
+</html>
